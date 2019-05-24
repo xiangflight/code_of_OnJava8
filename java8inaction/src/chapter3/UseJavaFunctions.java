@@ -24,14 +24,14 @@ public class UseJavaFunctions {
 
         List<Integer> l = map(
                 Arrays.asList("lambdas", "in", "action"),
-                (String s) -> s.length()
+                String::length
         );
         System.out.println(l);
     }
 
-    public static <T> List<T> filter(List<T> list, Predicate<T> p ) {
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
         List<T> results = new ArrayList<>();
-        for (T e: list) {
+        for (T e : list) {
             if (p.test(e)) {
                 results.add(e);
             }
@@ -40,14 +40,14 @@ public class UseJavaFunctions {
     }
 
     private static <T> void forEach(List<T> list, Consumer<T> consumer) {
-        for (T i: list) {
+        for (T i : list) {
             consumer.accept(i);
         }
     }
 
     private static <T, R> List<R> map(List<T> list, Function<T, R> f) {
         List<R> result = new ArrayList<>();
-        for (T s: list) {
+        for (T s : list) {
             result.add(f.apply(s));
         }
         return result;

@@ -111,6 +111,16 @@ public class FilteringApples {
         }
     }
 
+    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (p.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
+    }
+
     public interface AppleFormatter {
         /**
          * 对苹果的参数格式化
@@ -119,6 +129,26 @@ public class FilteringApples {
          * @return 格式化后的字符串
          */
         String accept(Apple apple);
+    }
+
+    public interface ApplePredicate {
+        /**
+         * selection criteria
+         *
+         * @param apple apple
+         * @return true or false
+         */
+        boolean test(Apple apple);
+    }
+
+    public interface Predicate<T> {
+        /**
+         * for all problem domain
+         *
+         * @param t type
+         * @return true or false
+         */
+        boolean test(T t);
     }
 
     static class AppleFancyFormatter implements AppleFormatter {
@@ -165,16 +195,6 @@ public class FilteringApples {
         }
     }
 
-    public interface ApplePredicate {
-        /**
-         * selection criteria
-         *
-         * @param apple apple
-         * @return true or false
-         */
-        boolean test(Apple apple);
-    }
-
     static class AppleWeightPredicate implements ApplePredicate {
 
         @Override
@@ -198,26 +218,6 @@ public class FilteringApples {
             return Objects.equals("red", apple.getColor())
                     && apple.getWeight() > 150;
         }
-    }
-
-    public interface Predicate<T> {
-        /**
-         * for all problem domain
-         *
-         * @param t type
-         * @return true or false
-         */
-        boolean test(T t);
-    }
-
-    public static <T> List<T> filter(List<T> list, Predicate<T> p) {
-        List<T> result = new ArrayList<>();
-        for (T e: list) {
-            if (p.test(e)) {
-                result.add(e);
-            }
-        }
-        return result;
     }
 
 }

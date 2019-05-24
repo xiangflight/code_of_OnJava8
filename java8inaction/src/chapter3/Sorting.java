@@ -21,8 +21,6 @@ public class Sorting {
         inventory.sort(new AppleComparator());
         System.out.println(inventory);
 
-        inventory.set(1, new Apple(30, "green"));
-
         inventory.sort(new Comparator<Apple>() {
             @Override
             public int compare(Apple o1, Apple o2) {
@@ -31,14 +29,22 @@ public class Sorting {
         });
         System.out.println(inventory);
 
-        inventory.set(1, new Apple(20, "red"));
+        inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
+        System.out.println(inventory);
 
         inventory.sort((a1, a2) -> a1.getWeight().compareTo(a2.getWeight()));
         System.out.println(inventory);
 
-        inventory.set(1, new Apple(10, "red"));
+        Comparator<Apple> c = Comparator.comparing((Apple a) -> a.getWeight());
+        inventory.sort(c);
+        System.out.println(inventory);
 
-        inventory.sort(comparing(Apple::getWeight));
+        inventory.sort(comparing((a) -> a.getWeight()));
+        System.out.println(inventory);
+
+        inventory.sort(comparing(Apple::getWeight)
+                .reversed()
+                .thenComparing(Apple::getColor));
         System.out.println(inventory);
     }
 

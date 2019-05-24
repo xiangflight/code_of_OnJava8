@@ -30,6 +30,12 @@ public class ExecuteAround {
         }
     }
 
+    private static String processFile(BufferedReaderProcessor p) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader("/Users/xiang/IdeaProjects/code_of_OnJava8/java8inaction/src/chapter3/data.txt"))) {
+            return p.process(br);
+        }
+    }
+
     @FunctionalInterface
     public interface BufferedReaderProcessor {
         /**
@@ -40,11 +46,5 @@ public class ExecuteAround {
          * @throws IOException exception
          */
         String process(BufferedReader br) throws IOException;
-    }
-
-    private static String processFile(BufferedReaderProcessor p) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader("/Users/xiang/IdeaProjects/code_of_OnJava8/java8inaction/src/chapter3/data.txt"))) {
-            return p.process(br);
-        }
     }
 }
