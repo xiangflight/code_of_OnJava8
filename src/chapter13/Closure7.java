@@ -4,15 +4,15 @@ import java.util.function.IntSupplier;
 
 /**
  * @author xiangdotzhaoAtwoqutechcommacom
- * @date 2019-08-06 13:58
+ * @date 2019-08-15 09:28
  */
 
-public class Closure1 {
-
-    int i;
+public class Closure7 {
 
     IntSupplier makeFun(int x) {
-        return () -> x + i++;
+        Integer i = 0;
+//        i = i + 1;
+        return () -> x + i;
     }
 
 }
