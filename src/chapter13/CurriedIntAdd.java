@@ -15,5 +15,4 @@ public class CurriedIntAdd {
         IntUnaryOperator add4 = curriedIntAdd.apply(4);
         System.out.println(add4.applyAsInt(5));
     }
-
 }
