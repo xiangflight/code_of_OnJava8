@@ -21,5 +21,4 @@ public class CollectionToStream {
         m.put("phi", 1.618);
         m.entrySet().stream().map(e -> e.getKey() + ": " + e.getValue()).forEach(System.out::println);
     }
-
 }
