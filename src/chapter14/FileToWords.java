@@ -17,5 +17,4 @@ public class FileToWords {
                 .skip(1)
                 .flatMap(line -> Arrays.stream(line.split("\\W+")));
     }
-
 }
