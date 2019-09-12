@@ -8,7 +8,7 @@ import java.util.stream.Stream;
  * @date 2019/9/2 8:59 上午
  */
 
-public class OptionalsFromEmtpyStreams {
+public class OptionalsFromEmptyStreams {
 
     public static void main(String[] args) {
         System.out.println(Stream.<String>empty().findFirst());
