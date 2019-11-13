@@ -7,6 +7,10 @@ package chapter19;
 
 public class Candy {
 
+    Candy() {
+        System.out.println("Candy constructor");
+    }
+
     static {
         System.out.println("Loading Candy");
     }

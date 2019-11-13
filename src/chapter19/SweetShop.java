@@ -12,7 +12,7 @@ public class SweetShop {
         new Candy();
         System.out.println("After creating Candy");
         try {
-            Class.forName("Gum");
+            Class.forName("chapter19.Gum");
         } catch (ClassNotFoundException e) {
             System.out.println("Couldn't find Gum");
         }
