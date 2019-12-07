@@ -24,13 +24,6 @@ class ClassAsFactory<T> implements Supplier<T> {
     }
 }
 
-class Employee {
-    @Override
-    public String toString() {
-        return "Employee";
-    }
-}
-
 public class InstantiateGenericType {
 
     public static void main(String[] args) {
