@@ -1,0 +1,19 @@
+package chapter20;
+
+/**
+ * @author xiangdotzhaoAtwoqutechcommacom
+ * @date 2019/12/7
+ */
+class Subtype extends BasicHolder<Subtype> {}
+
+public class CRGWithBasicHolder {
+
+    public static void main(String[] args) {
+        Subtype st1 = new Subtype();
+        Subtype st2 = new Subtype();
+        st1.set(st2);
+        Subtype st3 = st1.get();
+        st1.f();
+    }
+
+}
